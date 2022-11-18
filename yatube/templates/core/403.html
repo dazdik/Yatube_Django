@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+{% block title %}Ошибка 403 — В доступе отказано{% endblock %}
+{% block content %}
+    <h1>Ошибка 403</h1>
+    <a href="{% url 'posts:index' %}"> Идите на главную</a>
+{% endblock %}

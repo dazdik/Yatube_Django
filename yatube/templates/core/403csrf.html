@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}Ошибка 403 CSRF{% endblock %}
+{% block content %}
+<main role="main" class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h1>Ошибка 403</h1>
+      <p class="lead">CSRF токен отсутствует или неверен.</p>
+      <p class="lead"><a href="{% url 'posts:index' %}">Вернуться на главную</a></p>
+    </div>
+  </div>
+</main> 
+{% endblock %} 

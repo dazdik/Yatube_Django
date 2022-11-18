@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load thumbnail %}
+{% block title %}
+  Лента избранных авторов сообщества Yatube 
+{% endblock %}
+{% block content %}
+<h1>
+  Ваша лента
+</h1>
+
+{% include 'includes/switcher.html' %}
+
+{% for post in page_obj %}
+{% include 'includes/post_list.html' %}
+  
+  {% if not forloop.last %}<hr>{% endif %}
+{% endfor %}
+
+{% include 'includes/paginator.html' %}
+{% endblock %} 

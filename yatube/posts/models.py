@@ -57,13 +57,13 @@ class Post(models.Model):
         blank=True
     )
 
-    def __str__(self):
-        return self.text[:CUT_TEXT]
-
     class Meta:
         ordering = ('-pub_date', )
         verbose_name = 'запись'
         verbose_name_plural = 'записи'
+
+    def __str__(self):
+        return self.text[:CUT_TEXT]
 
 
 class Comment(models.Model):
@@ -90,13 +90,13 @@ class Comment(models.Model):
         'Дата публикации',
         auto_now_add=True)
 
-    def __str__(self):
-        return self.text[:CUT_TEXT]
-
     class Meta:
         ordering = ('-created', )
         verbose_name = 'комментарий'
         verbose_name_plural = 'комментарии'
+
+    def __str__(self):
+        return self.text[:CUT_TEXT]
 
 
 class Follow(models.Model):
@@ -117,9 +117,6 @@ class Follow(models.Model):
         verbose_name='Автор'
     )
 
-    def __str__(self):
-        return self.author.username[:CUT_TEXT]
-
     class Meta:
         verbose_name = 'подписка'
         verbose_name_plural = 'подписки'
@@ -130,3 +127,6 @@ class Follow(models.Model):
                 name='unique_follower'
             )
         ]
+
+    def __str__(self):
+        return self.author.username[:CUT_TEXT]

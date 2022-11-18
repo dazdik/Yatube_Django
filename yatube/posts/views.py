@@ -42,7 +42,7 @@ def profile(request, username):
     author = get_object_or_404(User, username=username)
     posts = author.posts.all()
     count = author.posts.count()
-    following = Follow.objects.filter(author__username=username).count()
+    following = Follow.objects.filter(author__username=username).exists()
     paginate = get_page_context(posts, request)
     context = {
         'author': author,

@@ -4,7 +4,9 @@
 {% block content %}
 <div class="mb-5">
   <h1>Все посты пользователя {{ author.get_full_name }}</h1>
-  <h3>Всего постов: {{ posts_count }}</h3>
+  <h3>Всего постов: {{ count }}</h3>
+{% if request.user.is_authenticated %}
+{% if request.user != author %}  
   {% if following %}
     <a
       class="btn btn-lg btn-light"
@@ -20,6 +22,8 @@
         Подписаться
       </a>
    {% endif %}
+{% endif %}
+{% endif %}   
 </div>
   {% for post in page_obj %}
     <article>
